@@ -4,6 +4,7 @@ $(document).ready(function() {
   $('#btn').on('click', function() {
     var dice1 = (Math.floor(Math.random() * (6 - 1 + 1)) + 1);
     var dice2 = (Math.floor(Math.random() * (6 - 1 + 1)) + 1);
+    var sum = dice1+dice2
     console.log(dice1)
     console.log(dice2)
 
@@ -11,9 +12,9 @@ $(document).ready(function() {
     $('br').show()
 
     if (dice1 == dice2) {
-      $('#score').text('Vous avez fait un double de ' + dice1)
+      $('#score').text('Vous avez fait un score de ' + sum + ' en faisant un double de ' + dice1)
     } else {
-      $('#score').text('Vous avez fait ' + dice1 + ' et ' +  dice2)
+      $('#score').text('Vous avez fait un score de ' + sum + ' en faisant ' + dice1 + ' et ' +  dice2)
     }
 
 
