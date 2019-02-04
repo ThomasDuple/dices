@@ -1,0 +1,33 @@
+body {
+  background-image: radial-gradient(farthest-corner at 40px 40px, #444 0%, #111 100%);
+  background-size: 100vw 100vh;
+  color: #fff;
+  text-align: center;
+}
+
+#page {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+img {
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+}
+
+#btn {
+  font-size: 20px;
+  padding: 20px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 50px;
+  cursor: pointer;
+  user-select: none;
+}
+
+#score {
+  font-size: 25px;
+}
