@@ -31,3 +31,10 @@ img {
 #score {
   font-size: 25px;
 }
+
+#bloccount {
+  font-size: 25px;
+  bottom: 20px;
+  right: 20px;
+  position: fixed;
+}
