@@ -1,40 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-  <script src="script.js"></script>
-  <title>Lancé de dés</title>
-</head>
-<body>
-  <div id="page">
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dices - ThomasDuple</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Trade+Winds&display=swap" rel="stylesheet"> 
+  </head>
+  <body>
+    <h1>Dices</h1>
 
-    <span id='score'></span>
-    <br><br>
-
-    <!-- Dé 1 -->
-    <img id='dice1-1' class='dice' src="img/1.png" alt="1">
-    <img id='dice1-2' class='dice' src="img/2.png" alt="2">
-    <img id='dice1-3' class='dice' src="img/3.png" alt="3">
-    <img id='dice1-4' class='dice' src="img/4.png" alt="4">
-    <img id='dice1-5' class='dice' src="img/5.png" alt="5">
-    <img id='dice1-6' class='dice' src="img/6.png" alt="6">
-    <!-- Dé 2 -->
-    <img id='dice2-1' class='dice' src="img/1.png" alt="1">
-    <img id='dice2-2' class='dice' src="img/2.png" alt="2">
-    <img id='dice2-3' class='dice' src="img/3.png" alt="3">
-    <img id='dice2-4' class='dice' src="img/4.png" alt="4">
-    <img id='dice2-5' class='dice' src="img/5.png" alt="5">
-    <img id='dice2-6' class='dice' src="img/6.png" alt="6">
-    <br><br><br>
-    <span id='btn'>Lancer les dés</span>
-  </div>
-
-  <div id="bloccount">
-    <span id='count'></span>
-  </div>
-</body>
+    <table id="list">
+      <!-- Automatic JS Generation -->
+    </table>
+    <button onclick="displayRes()">Lancer les dés</button>
+    <section>
+      <h1>Resultats</h1>
+      <p id="res">
+        <!-- Automatic JS Generation -->
+      </p>
+    </section>
+    <script>listAllDices()</script>
+  </body>
 </html>

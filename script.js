@@ -1,47 +1,49 @@
-$(document).ready(function() {
-  $('img,br,#bloccount').hide();
-  var count = 0;
-  console.log(count);
+class dice {
+  constructor(min, max) {
+    this.min = min;
+    this.max = max;
+  }
 
-  $('#btn').on('click', function() {
-    $('#bloccount').show();
-    count = count + 1;
-    console.log('Lancé numero ' + count + ' :')
-    if (count == 1) {
-      $('#count').text('Vous avez fait ' + count + ' seul lancé');
-    } else {
-      $('#count').text('Vous avez fait ' + count + ' lancés');
+  randomNumber() {
+    return Math.floor(Math.random() * (this.max + 1 - this.min)) + this.min;
+  }
+}
+
+function displayRes() {
+  htmlStr = "";
+
+  if (allDices.length > 1) {
+    htmlStr += allDices[0].randomNumber();
+
+    for (var i = 1; i < allDices.length; i++) {
+      htmlStr +=  " " + allDices[i].randomNumber();
     };
+  }
 
-    var dice1 = (Math.floor(Math.random() * (6 - 1 + 1)) + 1);
-    var dice2 = (Math.floor(Math.random() * (6 - 1 + 1)) + 1);
-    var sum = dice1+dice2;
-    console.log('Dé 1 : ' + dice1);
-    console.log('Dé 2 : ' + dice2);
+  document.getElementById("res").innerHTML = htmlStr;
+}
 
-    $('.dice').hide();
-    $('br').show();
+function addDice() {
+  var min = document.getElementById("min").valueAsNumber;
+  var max = document.getElementById("max").valueAsNumber;
 
-    if (dice1 == dice2) {
-      $('#score').text('Vous avez fait un score de ' + sum + ' en faisant un double de ' + dice1);
-    } else {
-      $('#score').text('Vous avez fait un score de ' + sum + ' en faisant ' + dice1 + ' et ' +  dice2);
-    }
+  allDices.push(new dice(min, max));
 
+  listAllDices();
+}
 
-    if (dice1 == 1) { $('#dice1-1').show() };
-    if (dice1 == 2) { $('#dice1-2').show() };
-    if (dice1 == 3) { $('#dice1-3').show() };
-    if (dice1 == 4) { $('#dice1-4').show() };
-    if (dice1 == 5) { $('#dice1-5').show() };
-    if (dice1 == 6) { $('#dice1-6').show() };
+function listAllDices() {
+  var htmlStr = "<tr><th>Min</th><th>Max</th><th></th></tr>";
+  for (var i = 0; i < allDices.length; i++) {
+    htmlStr += '<tr><td>' + allDices[i].min + '</td><td>' + allDices[i].max + '</td><td><!----><button onclick="rmvDice(' + i + ')"><img src="img/close.svg"></button></td></tr>';
+  };
+  htmlStr += '<tr class="add"><td><input id="min" type="number" value="1"></td><td><input id="max" type="number" value="6"></td><td><button onclick="addDice()"><img src="img/add.svg"></button></td></tr>'
+  document.getElementById("list").innerHTML = htmlStr;
+}
 
-    if (dice2 == 1) { $('#dice2-1').show() };
-    if (dice2 == 2) { $('#dice2-2').show() };
-    if (dice2 == 3) { $('#dice2-3').show() };
-    if (dice2 == 4) { $('#dice2-4').show() };
-    if (dice2 == 5) { $('#dice2-5').show() };
-    if (dice2 == 6) { $('#dice2-6').show() };
+function rmvDice(id) {
+  allDices.splice(id, 1);
+  listAllDices();
+}
 
-  });
-});
+var allDices = [];

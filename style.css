@@ -1,40 +1,126 @@
+* {
+  --bg: #0f0f20;
+  --title-bg: #080811;
+  --list-fg: #d38f29;
+  --list-bg: #ac7420; 
+  --list-bg-add: #885c1b;
+  --red-bg: #aa2222;
+  --green-bg: #17790a;
+  --res-fg: #2876be;
+  --res-bg: #1d5991;
+}
+
 body {
-  background-image: radial-gradient(farthest-corner at 40px 40px, #444 0%, #111 100%);
-  background-size: 100vw 100vh;
+  background-color: var(--bg);
+  font-family: 'Roboto';
+  margin: 10px;
+  margin-top: 75px;
+}
+
+body > h1 {
+  font-family: 'Trade Winds';
+  font-size: 35px;
+  margin: 0;
+  padding: 5px;
+  top: 0;
+  left: 0;
+  color: #fff;
+  background-color: var(--title-bg);
+  border-bottom: 2px solid #fff;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+}
+
+table, th, td {
+  border: 2px solid var(--list-fg);
+  padding: 0;
+  margin: 0;
+}
+
+table {
+  border-collapse: collapse;
+  color: #fff;
+  font-size: 25px;
+}
+
+th {
+  background-color: var(--list-fg);
+}
+
+td {
+  background-color: var(--list-bg);
+  text-align: center;
+  height: 50px;
+}
+
+td:last-child {
+  background-color: var(--red-bg);
+}
+
+.add td {
+  background-color: var(--list-bg-add);
+}
+
+.add td:last-child {
+  background-color: var(--green-bg);
+}
+
+table button {
+  margin: 0;
+  padding: 0;
+  background-color: #0000;
+  border: 0;
+}
+
+button img {
+  margin: 0;
+  padding: 0;
+  height: 50px;
+  width: 50px;
+  vertical-align: middle;
+}
+
+table input {
+  border: 0;
+  height: 50px;
+  width: 100px;
+  font-size: 25px;
+  text-align: center;
+  font-family: 'Roboto';
+  font-style: italic;
+  color: #fff;
+  background-color: #0000;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
+section {
+  border: 2px solid var(--res-fg);
+  width: max-content;
+  max-width: calc(100% - 10px);
+}
+
+section h1 {
+  background-color: var(--res-fg);
+  font-size: 25px;
+  margin: 0;
   color: #fff;
   text-align: center;
 }
 
-#page {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-}
-
-img {
-  display: inline-block;
-  height: 100px;
-  width: 100px;
-}
-
-#btn {
+section p {
+  background-color: var(--res-bg);
+  margin: 0;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
   font-size: 20px;
-  padding: 20px;
-  background-color: #fff;
-  color: #333;
-  border-radius: 50px;
-  cursor: pointer;
-  user-select: none;
-}
-
-#score {
-  font-size: 25px;
-}
-
-#bloccount {
-  font-size: 25px;
-  bottom: 20px;
-  right: 20px;
-  position: fixed;
 }
