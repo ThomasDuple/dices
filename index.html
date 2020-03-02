@@ -11,17 +11,18 @@
   </head>
   <body>
     <h1>Dices</h1>
-
-    <table id="list">
-      <!-- Automatic JS Generation -->
-    </table>
-    <button onclick="displayRes()">Lancer les dés</button>
-    <section>
-      <h1>Resultats</h1>
-      <p id="res">
+    <div id="flex">
+      <table id="list">
         <!-- Automatic JS Generation -->
-      </p>
-    </section>
+      </table>
+      <button id="startBtn" onclick="displayRes()"><!-- Automatic JS Generation -->></button>
+      <section>
+        <h2>Resultats</h2>
+        <div id="res">
+          <!-- Automatic JS Generation -->
+        </div>
+      </section>
+    </div>
     <script>listAllDices()</script>
   </body>
 </html>

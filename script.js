@@ -10,17 +10,23 @@ class dice {
 }
 
 function displayRes() {
-  htmlStr = "";
+  document.getElementsByTagName("section")[0].style.display = 'block';
+  var htmlStr = "";
+  var sum = 0;
 
-  if (allDices.length > 1) {
-    htmlStr += allDices[0].randomNumber();
+  if (allDices.length >= 1) {
+    var nb = allDices[0].randomNumber();
+    htmlStr += nb;
+    sum += nb;
 
     for (var i = 1; i < allDices.length; i++) {
-      htmlStr +=  " " + allDices[i].randomNumber();
+      var nb = allDices[i].randomNumber();
+      htmlStr += " + " + nb;
+      sum += nb;
     };
   }
 
-  document.getElementById("res").innerHTML = htmlStr;
+  document.getElementById("res").innerHTML = '<p>' + sum + '</p><p>' + htmlStr + '</p>';
 }
 
 function addDice() {
@@ -39,6 +45,7 @@ function listAllDices() {
   };
   htmlStr += '<tr class="add"><td><input id="min" type="number" value="1"></td><td><input id="max" type="number" value="6"></td><td><button onclick="addDice()"><img src="img/add.svg"></button></td></tr>'
   document.getElementById("list").innerHTML = htmlStr;
+  clean();
 }
 
 function rmvDice(id) {
@@ -46,4 +53,22 @@ function rmvDice(id) {
   listAllDices();
 }
 
+function clean() {
+
+  if (!dispRes) {
+    dispRes = true;
+    document.getElementsByTagName("section")[0].style.display = 'none'
+  }
+
+  if (allDices.length == 0) {
+    document.getElementById("startBtn").style.display = 'none';
+  } else if (allDices.length == 1) {
+    document.getElementById("startBtn").style.display = 'block';
+    document.getElementById("startBtn").innerHTML = 'Lancer le dé';
+  } else {
+    document.getElementById("startBtn").innerHTML = 'Lancer les dés'
+  }
+}
+
 var allDices = [];
+var dispRes = false;
