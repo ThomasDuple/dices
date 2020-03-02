@@ -38,6 +38,10 @@ body > h1 {
   align-items: center;
 }
 
+#flex > * {
+  box-shadow: 8px 8px 10px #000;
+}
+
 table, th, td {
   border: 2px solid var(--list-fg);
   padding: 0;
@@ -114,6 +118,8 @@ input[type=number] {
   margin-top: 10px;
   padding: 20px;
   font-size: 20px;
+  font-family: 'Roboto';
+  border-radius: 0;
 }
 
 section {
