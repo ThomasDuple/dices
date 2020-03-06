@@ -112,7 +112,7 @@ input[type=number] {
   -moz-appearance:textfield;
 }
 
-#flex > button {serif
+#flex > button {
   background-color: #eee;
   border: 2px solid #fff;
   margin-top: 10px;

@@ -1,16 +1,41 @@
 class dice {
   constructor(min, max) {
-    if (min < max) {
-    	this.min = min;
-    	this.max = max;
-    } else {
-    	this.min = max;
-	this.max = min;
+    this.setMin(min);
+    this.setMax(max);
+
+    if (this.getMin > this.getMax) {
+      var temp = this.getMin;
+      this.setMin(this.getMax);
+      this.setMax(temp);
     }
   }
 
+  setMin(x) {
+    if (min == nil) {
+      this.min = 1;
+    } else {
+      this.min = x;
+    }
+  }
+
+  setMax(x) {
+    if (max == nil) {
+      this.max = 6;
+    } else {
+      this.max = x;
+    }
+  }
+
+  getMin() {
+    return this.min;
+  }
+
+  getMax() {
+    return this.max;
+  }
+
   randomNumber() {
-    return Math.floor(Math.random() * (this.max + 1 - this.min)) + this.min;
+    return Math.floor(Math.random() * (this.getMax + 1 - this.getMin)) + this.getMin;
   }
 }
 
@@ -46,7 +71,7 @@ function addDice() {
 function listAllDices() {
   var htmlStr = "<tr><th>Min</th><th>Max</th><th></th></tr>";
   for (var i = 0; i < allDices.length; i++) {
-    htmlStr += '<tr><td>' + allDices[i].min + '</td><td>' + allDices[i].max + '</td><td><!----><button onclick="rmvDice(' + i + ')"><img src="img/close.svg"></button></td></tr>';
+    htmlStr += '<tr><td>' + allDices[i].getMin + '</td><td>' + allDices[i].getMax + '</td><td><!----><button onclick="rmvDice(' + i + ')"><img src="img/close.svg"></button></td></tr>';
   };
   htmlStr += '<tr class="add"><td><input id="min" type="number" value="1"></td><td><input id="max" type="number" value="6"></td><td><button onclick="addDice()"><img src="img/add.svg"></button></td></tr>'
   document.getElementById("list").innerHTML = htmlStr;

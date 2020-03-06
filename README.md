@@ -1,4 +1,4 @@
-# dices[old]
-Ouais bah ~~c'est~~ c'était un lancé de dés on va pas en faire toute une affaire
+# Dices
+A project about rolling custom dices, some bugs may be fixed soon.
 
-*J'taffe sur la v2 des fois*
+[The project](https://thomasduple.github.io/dices)
