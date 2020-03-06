@@ -1,7 +1,12 @@
 class dice {
   constructor(min, max) {
-    this.min = min;
-    this.max = max;
+    if (min < max) {
+    	this.min = min;
+    	this.max = max;
+    } else {
+    	this.min = max;
+	this.max = min;
+    }
   }
 
   randomNumber() {
